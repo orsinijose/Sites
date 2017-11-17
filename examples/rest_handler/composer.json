@@ -1,0 +1,19 @@
+{
+    "name": "orsinijose/rest_handler",
+    "description": "This is a small project built in PHP for getting contents from dotCMS using REST calls",
+    "type": "project",
+    "require": {
+        "rmccue/requests": "^1.7"
+    },
+    "require-dev": {
+        "rmccue/requests": "^1.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "orsinijose",
+            "email": "orsini.jose@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
