@@ -187,17 +187,6 @@ class RestHandler
         
     }
 
-    public function populateArray($x)
-    {
-        return array(
-            'languageId' => '1',
-            'stName' => 'webPageContent',
-            'title' => 'Script for Content Number ' . $x,
-            'contentHost' => 'demo.dotcms.com',
-            'body' => 'Test Body Goes Here ' . $x
-        );
-    }
-
     public function arrayToJSON($arr)
     {
         return json_encode($arr);
@@ -218,23 +207,6 @@ class RestHandler
             echo "Failure! Content was not pulled <br><br> Status code is: " . $request->status_code . "<br><br>";
         }
         return $results;
-    }
-
-    public function makePOSTCall()
-    {
-        for ($x = 1; $x <= $this->getLimit(); $x ++) {
-            $dataAsArray = $this->populateArray($x);
-            $dataAsJSON = $this->arrayToJSON($dataAsArray);
-            
-            $request = Requests::post($this->getHostName() . $this->getEndpoint(), $this->getHeadersProperty(), $dataAsJSON, $this->getOptionsProperty());
-            
-            if ($request->status_code == 200) {
-                echo "Success! Content was Created <br><br>";
-                echo "Content Created is: " . $dataAsJSON . "<br><br>";
-            } else {
-                echo "Failure! Content was not created - Status code is: " . $request->status_code . "<br><br>";
-            }
-        }
     }
 }
 ?>
